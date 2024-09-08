@@ -1,0 +1,29 @@
+import itertools
+
+# Function to check if a list is sorted
+def is_sorted(data):
+    for i in range(len(data) - 1):
+        if data[i] > data[i + 1]:
+            return False
+    return True
+
+# Function to generate all permutations and find the sorted one
+def find_sorted_permutation(data):
+    # Generate all permutations of the input data
+    for permutation in itertools.permutations(data):
+        # Check if the current permutation is sorted
+        print(permutation)
+        if is_sorted(permutation):
+            return permutation
+    return None
+
+# Example input
+data = [5, 1, 4, 2, 3]
+
+# Find the sorted permutation
+sorted_permutation = find_sorted_permutation(data)
+
+if sorted_permutation:
+    print("Sorted permutation:", sorted_permutation)
+else:
+    print("No sorted permutation found.")
